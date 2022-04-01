@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('especialistas', function (Blueprint $table) {
             $table->mediumIncrements('id_especialista')->comment('ID del especialista');
             $table->string('nombre_completo')->comment('Nombre del especialista');
             $table->string('cedula_profesional');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->enum('perfil', ['Administrador','Paciente'])->comment('Perfil del administrador');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('especialidad_id')->references('id')->on('especialidades');
+            $table->foreign('id_especialidad')->references('id_especialidad')->on('especialidades');
         });
 
 
